@@ -1,0 +1,7 @@
+{
+    "require-dev": {
+        "phpspec/phpspec2": "*"
+    },
+    "autoload": {"psr-0": {"": "src"}},
+    "minimum-stability": "dev"
+}
