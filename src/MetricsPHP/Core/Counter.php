@@ -9,7 +9,7 @@ class Counter implements Metric
      *
      * @var integer
      */
-    private $count;
+    private $count = 0;
 
     /**
      * Increment the counter.
