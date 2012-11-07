@@ -1,6 +1,8 @@
 {
     "require-dev": {
-        "phpspec/phpspec2": "*"
+        "phpspec/phpspec2": "*",
+        "phpunit/phpunit": "3.*@stable",
+        "behat/behat": "2.*@stable"
     },
     "autoload": {"psr-0": {"": "src"}},
     "minimum-stability": "dev"
