@@ -68,7 +68,7 @@ class ExponentiallyDecayingSample implements Sample
     {
         $this->count = 0;
         $this->values = new MinKeyQueue();
-        $this->startTime = time();
+        $this->startTime = $this->clock->getTimeInSeconds();
         $this->nextScaleTime = $this->clock->getTick() + static::RESCALE_THRESHOLD;
     }
 
@@ -112,9 +112,6 @@ class ExponentiallyDecayingSample implements Sample
                 }
             }
         }
-
-        $vCount = $this->values->count();
-        #echo "RSize: {$this->reservoirSize}; Priority: $priority; Count: {$this->count}; Value: $value; VCount: $vCount; Size: {$this->size()}".PHP_EOL;
     }
 
     private function rescaleIfNeeded()
@@ -122,7 +119,6 @@ class ExponentiallyDecayingSample implements Sample
         $now = $this->clock->getTick();
         $next = $this->nextScaleTime;
         if ($now >= $next) {
-            echo "Need to rescale...".PHP_EOL;
             $this->rescale($now, $next);
         }
     }
