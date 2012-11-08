@@ -1,0 +1,5 @@
+<ruleset name="PSR-2 Coding Standard">
+ <description>PSR-2 Coding Standard</description>
+
+ <rule ref="PSR2"/>
+</ruleset>

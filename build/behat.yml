@@ -1,0 +1,10 @@
+default:
+    paths:
+        features: ../features
+        bootstrap: %behat.paths.features%/bootstrap
+
+ci:
+    formatter:
+        name: progress,junit
+        parameters:
+            output_path: ,build/junit/
