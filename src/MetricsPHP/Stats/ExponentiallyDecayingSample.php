@@ -128,10 +128,11 @@ class ExponentiallyDecayingSample implements Sample
         return $this->clock->getTimeInSeconds();
     }
 
-    private function weight($t)
+    private function weight($timeInSeconds)
     {
-        return exp($this->alpha * $t);
+        return exp($this->alpha * $timeInSeconds);
     }
+
     /* "A common feature of the above techniques—indeed, the key technique that
      * allows us to track the decayed weights efficiently—is that they maintain
      * counts and other quantities based on g(ti − L), and only scale by g(t − L)

@@ -26,14 +26,14 @@ class EWMA
     /**
      * Returns the alpha decay value for the EWMA.
      *
-     * @param integer $interval_in_seconds The interval with which should be ticked.
-     * @param integer $time_in_seconds The time over which the average should be calculated.
+     * @param integer $intervalInSeconds The interval with which should be ticked.
+     * @param integer $timeInSeconds The time over which the average should be calculated.
      *
      * @return double
      */
-    private static function getAlphaValue($interval_in_seconds, $time_in_seconds)
+    private static function getAlphaValue($intervalInSeconds, $timeInSeconds)
     {
-        return 1-exp(-$interval_in_seconds/$time_in_seconds);
+        return 1-exp(-$intervalInSeconds/$timeInSeconds);
     }
 
     /**
@@ -93,11 +93,11 @@ class EWMA
     /**
      * Update the moving average with a new value.
      *
-     * @param n the new value
+     * @param $value the new value
      */
-    public function update($n)
+    public function update($value)
     {
-        $this->uncounted += $n;
+        $this->uncounted += $value;
     }
 
     /**

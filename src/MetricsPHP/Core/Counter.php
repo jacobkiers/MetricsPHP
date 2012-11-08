@@ -14,26 +14,26 @@ class Counter implements Metric
     /**
      * Increment the counter.
      *
-     * @param integer $n Defaults to 1
+     * @param integer $inc Defaults to 1
      *
      * @return integer The new count
      */
-    public function inc($n = 1)
+    public function inc($inc = 1)
     {
-        $this->count += $n;
+        $this->count += $inc;
         return $this->count;
     }
 
     /**
      * Decrement the counter.
      *
-     * @param integer $n Defaults to 1
+     * @param integer $dec Defaults to 1
      *
      * @return integer The new count
      */
-    public function dec($n = 1)
+    public function dec($dec = 1)
     {
-        $this->count -= $n;
+        $this->count -= $dec;
         return $this->count;
     }
 
