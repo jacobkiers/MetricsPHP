@@ -1,15 +1,8 @@
 <?php
 
-use Behat\Behat\Context\ClosuredContextInterface,
-    Behat\Behat\Context\TranslatedContextInterface,
-    Behat\Behat\Context\BehatContext,
-    Behat\Behat\Exception\PendingException;
-use Behat\Gherkin\Node\PyStringNode,
-    Behat\Gherkin\Node\TableNode;
-
-
-use MetricsPHP\Core\ManualClock;
-use MetricsPHP\Stats\ExponentiallyDecayingSample;
+use \Behat\Behat\Context\BehatContext,
+    \MetricsPHP\Core\ManualClock,
+    \MetricsPHP\Stats\ExponentiallyDecayingSample;
 
 require_once 'PHPUnit/Framework/Assert/Functions.php';
 
