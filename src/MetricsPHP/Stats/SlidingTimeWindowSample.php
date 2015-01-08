@@ -2,7 +2,7 @@
 
 namespace Supernova\Metric\Stats;
 
-use Supernova\Metric\Core\Clock;
+use \MetricsPHP\Core\Clock;
 use \MetricsPHP\Helpers\MinKeyQueue;
 
 class SlidingTimeWindowSample implements Sample{
