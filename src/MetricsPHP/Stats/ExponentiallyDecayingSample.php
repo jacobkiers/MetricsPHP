@@ -74,7 +74,7 @@ class ExponentiallyDecayingSample implements Sample
 
     public function getSnapshot()
     {
-        return new Snapshot($this->values->toArray());
+        return new Snapshot(array_values($this->values->toArray()));
     }
 
     public function size()
