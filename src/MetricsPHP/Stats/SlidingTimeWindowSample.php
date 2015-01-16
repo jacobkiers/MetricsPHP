@@ -1,7 +1,5 @@
 <?php
 
-namespace Supernova\Metric\Stats;
-
 use \MetricsPHP\Core\Clock;
 use \MetricsPHP\Helpers\MinKeyQueue;
 
@@ -23,8 +21,7 @@ class SlidingTimeWindowSample implements Sample{
 
         $this->setClock($clock);
         $this->window = 1000000000 * $window * static::COLLISION_BUFFER;
-        $this->lastTick = $this->clock->getTick() * static::COLLISION_BUFFER;
-        $this->count = 0;
+        $this->clear();
     }
 
     public function setClock(Clock $clock)
@@ -67,7 +64,7 @@ class SlidingTimeWindowSample implements Sample{
             // ensure the tick is strictly incrementing even if there are duplicate ticks
             $newTick = $tick - $oldTick > 0 ? $tick : $oldTick + 1;
             if($this->lastTick == $oldTick ){
-                $this->lastTick = $oldTick;
+                $this->lastTick = $newTick;
                 return $newTick;
             }
         }
@@ -78,10 +75,9 @@ class SlidingTimeWindowSample implements Sample{
         $arr = $this->measurements->toArray();
         foreach ($arr as $key => $value) {
             if($key < $expire){
-                $this->measurements->remove[$key];
+                $this->measurements->remove($key);
             }
         }
     }
 }
-
 ?>
